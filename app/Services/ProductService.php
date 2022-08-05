@@ -17,7 +17,7 @@ class ProductService implements ProductInterface
                 'description' => 'string',
                 'min_qt' => 'required|integer',
                 'note' => 'required|integer',
-                'cost' => 'required|regex:/^\d+(\.\d{1,2})?'
+                'cost' => 'required|regex:/^\d+(\.\d{1,2})?$/'
             ]);
             
             if($validator->fails()){
@@ -33,6 +33,7 @@ class ProductService implements ProductInterface
             $product->min_qt = $request->get('min_qt');
             $product->note = $request->get('note');
             $product->cost = $request->get('cost');
+            $product->categorie_produit_id = $request->get('categorie_produit_id');
             $product->save();
 
             return response()->json([

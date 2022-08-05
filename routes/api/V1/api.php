@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login','App\Http\Controllers\Api\V1\LoginController@login');
+Route::post('/login','App\Http\Controllers\Api\V1\LoginController@login')->name('login');
+// Route::post('/login', [LoginController::class,'login'])->name('login');
 
 Route::middleware('auth:api')->post('/product', 
 'App\Http\Controllers\Api\V1\ProductController@createAction');
@@ -30,3 +32,4 @@ Route::middleware('auth:api')->get('/product/{id}',
 
 Route::middleware('auth:api')->get('/product', 
 'App\Http\Controllers\Api\V1\ProductController@listAction');
+
