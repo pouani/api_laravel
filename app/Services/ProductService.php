@@ -57,7 +57,7 @@ class ProductService implements ProductInterface
                 'description' => 'string',
                 'min_qt' => 'required|integer',
                 'note' => 'required|integer',
-                'cost' => 'required|regex:/^\d+(\.\d{1,2})?'
+                'cost' => 'required|regex:/^\d+(\.\d{1,2})?$/'
             ]);
             
             if($validator->fails()){
